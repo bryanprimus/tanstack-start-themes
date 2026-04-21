@@ -1,12 +1,10 @@
-import './styles.css';
-
-import { Button } from '../../src';
+import { ThemeProvider } from '../../src';
 
 export function App() {
 	return (
-		<main>
-			<Button>Click me</Button>
-		</main>
+		<ThemeProvider>
+			<main>Me</main>
+		</ThemeProvider>
 	);
 }
 
