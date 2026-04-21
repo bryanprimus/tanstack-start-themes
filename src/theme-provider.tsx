@@ -1,5 +1,6 @@
 import { createContext, useMemo, useCallback, useState, useEffect } from 'react';
 import type { JSX } from 'react/jsx-runtime';
+import { ThemeHotkey } from './theme-hot-key';
 
 type ThemeMode = 'light' | 'dark' | 'auto';
 
@@ -37,7 +38,16 @@ function applyThemeMode(mode: ThemeMode) {
 	document.documentElement.style.colorScheme = resolved;
 }
 
-export function ThemeProvider({ children }: { children: React.ReactNode }): JSX.Element {
+export type ThemeProviderProps = {
+	children: React.ReactNode;
+	/**
+	 * Enables the 'd' hotkey to toggle between light and dark themes.
+	 * @default false
+	 */
+	enableHotkey?: boolean;
+}
+
+export function ThemeProvider({ children, enableHotkey = false }: ThemeProviderProps): JSX.Element {
 	const [theme, setThemeState] = useState<ThemeMode>('auto');
 	const [resolvedTheme, setResolvedTheme] = useState<'light' | 'dark'>('light');
 
@@ -71,5 +81,5 @@ export function ThemeProvider({ children }: { children: React.ReactNode }): JSX.
 		[theme, setTheme, resolvedTheme],
 	);
 
-	return <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>;
+	return <ThemeContext.Provider value={value}>{enableHotkey && <ThemeHotkey/>}{children}</ThemeContext.Provider>;
 }
