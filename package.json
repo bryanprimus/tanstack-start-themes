@@ -1,17 +1,17 @@
 {
-  "name": "react-compiler-components-starter",
+  "name": "tanstack-start-themes",
   "type": "module",
   "version": "0.0.0",
-  "description": "A starter for creating a React component library with React Compiler.",
-  "author": "Author Name <author.name@mail.com>",
+  "description": "A theme provider for TanStack applications",
+  "author": "Bryan Primus",
   "license": "MIT",
-  "homepage": "https://github.com/author/library#readme",
+  "homepage": "https://github.com/bryanprimus/tanstack-start-themes#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/author/library.git"
+    "url": "git+https://github.com/bryanprimus/tanstack-start-themes.git"
   },
   "bugs": {
-    "url": "https://github.com/author/library/issues"
+    "url": "https://github.com/bryanprimus/tanstack-start-themes/issues"
   },
   "exports": {
     ".": "./dist/index.js",
@@ -30,7 +30,7 @@
     "test": "vitest",
     "typecheck": "tsc --noEmit",
     "release": "bumpp",
-    "prepublishOnly": "pnpm run build"
+    "prepublishOnly": "bun run build"
   },
   "peerDependencies": {
     "react": "^19.2.0",
