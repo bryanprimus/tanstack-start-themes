@@ -2,27 +2,72 @@
 
 An abstraction for themes in your Tanstack app.
 
-## Installation
+## Install
 
 ```bash
-bun add tanstack-start-themes
+npm install tanstack-start-themes
+# or
+bun install tanstack-start-themes
 ```
 
 ## Usage
 
-```tsx
-import 'tanstack-start-themes/styles.css';
-import { Button } from 'tanstack-start-themes';
+go to `src/routes/__root.tsx`
 
-function App() {
-	return <Button>Click me</Button>;
-}
+set `suppressHydrationWarning` to html tag
+
+```tsx
+<html suppressHydrationWarning>{...}</html>
 ```
 
-## Contributing
+import `THEME_INIT_SCRIPT` and put it inside `<head>` tag
 
-Please see [CONTRIBUTING.md](./CONTRIBUTING.md) for contribution guidelines.
+```tsx
+import { THEME_INIT_SCRIPT } from 'tanstack-start-themes'
 
-## License
+<head>
+  <script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
+</head>
+```
 
-MIT
+import and wrap your app inside `ThemeProvider`
+
+```tsx
+import { ThemeProvider } from 'tanstack-start-themes'
+
+<body>
+  <ThemeProvider>{children}</ThemeProvider>
+</body>
+```
+
+use `useTheme` hook to update and get value of active and resolved `theme`
+
+```tsx
+const { theme, setTheme, resolvedTheme } = useTheme()
+```
+
+## Development
+
+- Install dependencies:
+
+```bash
+npm install
+```
+
+- Run the playground:
+
+```bash
+npm run play
+```
+
+- Run the unit tests:
+
+```bash
+npm run test
+```
+
+- Build the library:
+
+```bash
+npm run build
+```
