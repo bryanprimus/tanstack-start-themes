@@ -1,5 +1,4 @@
-import { createContext, useMemo, useCallback, useState, useEffect } from 'react';
-import type { JSX } from 'react/jsx-runtime';
+import React, { createContext, useMemo, useCallback, useState, useEffect } from 'react';
 import { ThemeHotkey } from './theme-hot-key';
 
 type ThemeMode = 'light' | 'dark' | 'auto';
@@ -47,7 +46,7 @@ export type ThemeProviderProps = {
 	enableHotkey?: boolean;
 }
 
-export function ThemeProvider({ children, enableHotkey = false }: ThemeProviderProps): JSX.Element {
+export function ThemeProvider({ children, enableHotkey = false }: ThemeProviderProps): React.JSX.Element {
 	const [theme, setThemeState] = useState<ThemeMode>('auto');
 	const [resolvedTheme, setResolvedTheme] = useState<'light' | 'dark'>('light');
 
