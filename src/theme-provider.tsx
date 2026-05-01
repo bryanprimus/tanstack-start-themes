@@ -46,7 +46,7 @@ export type ThemeProviderProps = {
 	enableHotkey?: boolean;
 }
 
-export function ThemeProvider({ children, enableHotkey = false }: ThemeProviderProps): React.JSX.Element {
+export function ThemeProvider({ children, enableHotkey = false }: ThemeProviderProps): React.ReactNode {
 	const [theme, setThemeState] = useState<ThemeMode>('auto');
 	const [resolvedTheme, setResolvedTheme] = useState<'light' | 'dark'>('light');
 
