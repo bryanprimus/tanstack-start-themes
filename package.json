@@ -1,6 +1,6 @@
 {
 	"name": "tanstack-start-themes",
-	"version": "0.0.6",
+	"version": "0.0.7",
 	"description": "An abstraction for themes in your Tanstack app.",
 	"homepage": "https://github.com/bryanprimus/tanstack-start-themes#readme",
 	"bugs": {
